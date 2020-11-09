@@ -1,12 +1,10 @@
 const http = require('http');
 
-const server = http.createServer((req, res) => {
-    console.log(req.url, req.method, req.headers);
-    // process.exit(); detiene el servidor al instante
-    res.setHeader('Content-Type', 'text/html');
-    res.write('<html>');
-    res.write('<h1>Hello from NodeJS</h1>');    
-    res.write('</html>');
-});
+const routes = require('./routes');
 
-server.listen(3000);
+const server = http.createServer(routes);
+
+// inicia el servidor en puerto 3000
+server.listen(3000, () => {
+    console.log('Greeting from Node JS')
+} );
