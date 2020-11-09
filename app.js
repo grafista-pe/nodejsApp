@@ -14,6 +14,7 @@ const shopRoutes = require('./routes/shop');
 // app.use();
 // Attends for al kind of request POST, GET etc
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
